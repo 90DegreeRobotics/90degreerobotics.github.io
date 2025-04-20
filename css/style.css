@@ -1,0 +1,322 @@
+/* Main Styles for 90 Degree Robotics Website */
+
+/* Global Styles */
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: #000000;
+    --accent-color: #FF0000;
+    --light-gray: #F2F2F2;
+    --dark-gray: #333333;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.text-center .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Navigation */
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    min-height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.hero-section h1 {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* About Section */
+.about-section {
+    padding: 5rem 0;
+}
+
+.about-image-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    background: url('../images/about-image.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.about-image-container:hover .about-image {
+    transform: scale(1.05);
+}
+
+/* Products Section */
+.products-section {
+    padding: 5rem 0;
+    background-color: var(--light-gray);
+}
+
+.product-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.product-card .card-title {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--secondary-color);
+}
+
+/* Technology Section */
+.technology-section {
+    padding: 5rem 0;
+}
+
+.tech-features {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.tech-features li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.tech-features li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.tech-image-container {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tech-image {
+    width: 100%;
+    height: 100%;
+    background: url('../images/tech-image.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.tech-image-container:hover .tech-image {
+    transform: scale(1.05);
+}
+
+/* Support Section */
+.support-section {
+    padding: 5rem 0;
+    background-color: var(--secondary-color);
+}
+
+.support-section .section-title {
+    color: var(--primary-color);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    padding: 3rem 0;
+    background-color: var(--light-gray);
+}
+
+.newsletter-form .form-control {
+    height: 50px;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid #ddd;
+}
+
+.newsletter-form .btn {
+    border-radius: 0 25px 25px 0;
+    padding: 0 1.5rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 3rem 0 1rem;
+}
+
+.footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.footer h5 {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.footer h5::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--dark-gray);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* Buttons */
+.btn-danger {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-outline-danger {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-section {
+        height: 70vh;
+    }
+    
+    .about-image-container, .tech-image-container {
+        height: 300px;
+        margin-top: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .about-section, .products-section, .technology-section, .support-section {
+        padding: 3rem 0;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+/* Placeholder styles for when images are not available */
+.placeholder-image {
+    background: linear-gradient(45deg, var(--light-gray) 25%, var(--dark-gray) 25%, var(--dark-gray) 50%, var(--light-gray) 50%, var(--light-gray) 75%, var(--dark-gray) 75%, var(--dark-gray) 100%);
+    background-size: 20px 20px;
+}
