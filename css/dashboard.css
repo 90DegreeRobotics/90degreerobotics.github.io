@@ -1,0 +1,220 @@
+/* Dashboard Specific Styles for 90 Degree Robotics */
+
+/* Dashboard Cards */
+.dashboard-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.dashboard-card .card-header {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 1rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Status Container */
+.status-container {
+    padding: 10px 0;
+}
+
+.status-item {
+    margin-bottom: 15px;
+}
+
+.status-label {
+    font-weight: 600;
+    display: inline-block;
+    min-width: 150px;
+}
+
+.status-value {
+    font-weight: 400;
+}
+
+/* Device Controls */
+.device-controls {
+    padding: 10px 0;
+}
+
+.control-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.control-btn {
+    min-width: 100px;
+}
+
+/* Camera Feed */
+.camera-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.camera-feed {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera-feed img {
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.camera-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.camera-info {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.camera-name {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.camera-status {
+    color: #0f0;
+}
+
+.camera-controls-overlay {
+    pointer-events: auto;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+/* Telemetry */
+.telemetry-item {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.telemetry-label {
+    font-weight: 600;
+}
+
+.telemetry-value {
+    font-weight: 400;
+    text-align: right;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .camera-container {
+        height: 300px;
+    }
+    
+    .control-btn {
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .camera-container {
+        height: 250px;
+    }
+    
+    .status-label {
+        min-width: 120px;
+    }
+    
+    .control-buttons {
+        justify-content: center;
+    }
+}
+
+/* Animation for alerts */
+@keyframes alertPulse {
+    0% { background-color: rgba(255, 0, 0, 0.1); }
+    50% { background-color: rgba(255, 0, 0, 0.2); }
+    100% { background-color: rgba(255, 0, 0, 0.1); }
+}
+
+.alert-pulse {
+    animation: alertPulse 2s infinite;
+}
+
+/* Custom toggle switch for device settings */
+.form-switch .form-check-input {
+    width: 3em;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* Dashboard fullscreen mode */
+.fullscreen-mode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-mode .camera-feed {
+    height: 100vh;
+}
+
+.fullscreen-mode .camera-controls-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.fullscreen-exit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+}
