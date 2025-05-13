@@ -12,20 +12,35 @@
         /* Basic styles - Consider moving these to style.css for better organization */
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #f8f9fa; /* Light background for product page */
+            /* --- Background Image --- */
+            /* Updated to use bg1.jpg from an 'images' folder */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('images/bg1.jpg');
+            background-color: #0a0a0a; /* Dark fallback color */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-attachment: fixed; /* Fixed background for parallax effect */
+            /* --- End Background Image --- */
+            color: #f0f0f0; /* Default light text color for the body */
             padding-top: 70px; /* Adjust based on your navbar's height */
         }
         .page-header {
-            background-color: #000000; /* Black header */
+            background-color: transparent; /* Make header transparent to see body background */
             color: #ffffff;
             font-family: 'Orbitron', sans-serif;
+            border-bottom: 1px solid rgba(255, 59, 59, 0.5); /* Slightly transparent red border */
+            padding-top: 3rem; /* Add padding since bg is transparent */
+            padding-bottom: 3rem;
+            margin-bottom: 2rem; /* Space below header */
         }
         .page-header h1 {
             font-weight: 700;
             color: #ff3b3b; /* Red heading color */
+            text-shadow: 0 0 8px rgba(0,0,0,0.5); /* Add shadow for readability */
         }
         .page-header .lead {
             color: #f0f0f0; /* Lighter lead text */
+             text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Add shadow for readability */
         }
 
         .section-title {
@@ -33,44 +48,65 @@
             color: #ff3b3b; /* Red section titles */
             margin-bottom: 1.5rem;
         }
+
+        /* Dark Glass Effect Class */
+        .glass-effect {
+            background: rgba(10, 10, 10, 0.65); /* Dark semi-transparent background */
+            backdrop-filter: blur(12px); /* Slightly more blur */
+            -webkit-backdrop-filter: blur(12px); /* Safari support */
+            border-radius: 15px; /* Rounded corners */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle light border for contrast */
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2); /* Adjusted shadow for dark bg */
+            margin-bottom: 2rem; /* Space between glass sections */
+            padding: 2rem; /* Internal padding */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition on hover */
+        }
+        .glass-effect:hover {
+             transform: translateY(-5px); /* Slight lift on hover */
+             background: rgba(20, 20, 20, 0.75); /* Slightly lighter/more opaque on hover */
+             box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+        }
+
+
         .product-showcase {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid #dee2e6; /* Add subtle separator line */
+            /* Base styles removed as glass-effect handles visuals */
         }
-        .product-showcase:last-of-type { /* The last product showcase before CTA will have border */
-             border-bottom: 1px solid #dee2e6;
+
+        /* Ensure content inside dark glass is readable */
+        .glass-effect h2.section-title {
+             color: #ff3b3b; /* Keep red titles */
         }
-        .cta-section { /* Ensure CTA doesn't have a top border from product showcase */
-            border-top: none; /* Explicitly remove top border if product showcase adds bottom one */
-        }
-        .product-showcase h2 {
-             font-family: 'Orbitron', sans-serif;
-             color: #ff3b3b;
-        }
-        .product-showcase .lead {
+        .glass-effect .lead {
             font-size: 1.15rem;
             font-weight: 400;
-            color: #495057; /* Darker text for readability on light background */
+            color: #e0e0e0; /* Light text for readability on dark glass */
         }
-        .product-showcase p, .product-showcase ul {
-            color: #343a40;
+        .glass-effect p, .glass-effect ul {
+            color: #cccccc; /* Lighter grey text */
         }
-         /* Ensure text is dark on light backgrounds (like the alternating bg-light sections) */
-         .product-showcase.bg-light .lead,
-         .product-showcase.bg-light p,
-         .product-showcase.bg-light ul {
-            color: #343a40;
-        }
+         .glass-effect h4 {
+            font-family: 'Orbitron', sans-serif; /* Ensure Orbitron applies */
+            color: #ff6b6b; /* Lighter red for sub-headings */
+            margin-top: 1rem;
+         }
+         .glass-effect ul {
+            padding-left: 1.2rem; /* Adjust bullet point indentation */
+         }
+         .glass-effect li {
+             margin-bottom: 0.3rem;
+             color: #cccccc; /* Ensure list items are light */
+         }
+
 
         .product-image-container {
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 300px; /* Ensure space for image */
-            background-color: #e9ecef; /* Placeholder background */
+            background-color: rgba(50, 50, 50, 0.4); /* Darker transparent placeholder bg */
             border-radius: 15px; /* Rounded corners for image placeholder */
             overflow: hidden; /* Ensure image stays within bounds */
+             border: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle border */
         }
         .product-image.placeholder-image {
             width: 100%;
@@ -79,8 +115,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-color: #cccccc; /* Placeholder color */
-            color: #555555;
+            background-color: transparent; /* Remove solid background */
+            color: #999999; /* Lighter placeholder text */
             font-style: italic;
             border-radius: 15px; /* Keep rounded corners */
         }
@@ -94,6 +130,8 @@
             color: #ffffff;
             padding-top: 3rem;
             padding-bottom: 3rem;
+            margin-top: 2rem; /* Add space above CTA */
+            border-top: 1px solid rgba(255, 59, 59, 0.5); /* Add red border line above CTA */
         }
         .cta-section h2 {
             color: #ff3b3b; /* Red title */
@@ -107,6 +145,7 @@
             font-family: 'Orbitron', sans-serif;
             padding: 0.75rem 1.5rem;
             font-size: 1.1rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         .btn-danger:hover {
             background-color: #e02121;
@@ -118,6 +157,7 @@
             color: #ccc; /* Light grey text for footer */
             padding-top: 2rem;
             padding-bottom: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border above footer */
         }
         .footer h5 {
             color: #ff3b3b; /* Red headings in footer */
@@ -190,8 +230,9 @@
         </div>
     </header>
 
-    <section class="product-showcase py-5" id="wagonbot">
-        <div class="container">
+    <div class="container mt-4"> {/* Container wrapping product sections */}
+
+        <section class="product-showcase glass-effect" id="wagonbot"> {/* Using dark glass effect */}
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h2 class="section-title">WagonBot</h2>
@@ -221,11 +262,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="product-showcase py-5 bg-light" id="smart-cart">
-        <div class="container">
+        <section class="product-showcase glass-effect" id="smart-cart"> {/* Using dark glass effect */}
             <div class="row align-items-center">
                  <div class="col-lg-6 order-lg-2">
                      <h2 class="section-title">Smart Cart (Conceptual)</h2>
@@ -254,11 +293,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="product-showcase py-5" id="aura">
-        <div class="container">
+        <section class="product-showcase glass-effect" id="aura"> {/* Using dark glass effect */}
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h2 class="section-title">AURA (Conceptual)</h2>
@@ -281,11 +318,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="product-showcase py-5 bg-light" id="core-ai">
-        <div class="container">
+        <section class="product-showcase glass-effect" id="core-ai"> {/* Using dark glass effect */}
             <div class="row align-items-center">
                  <div class="col-lg-6 order-lg-2">
                     <h2 class="section-title">90° Core AI</h2>
@@ -308,11 +343,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="product-showcase py-5" id="sr1">
-        <div class="container">
+        <section class="product-showcase glass-effect" id="sr1"> {/* Using dark glass effect */}
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h2 class="section-title">SR1 (Small Robot 1)</h2>
@@ -334,11 +367,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="product-showcase py-5 bg-light" id="robotics-kit">
-        <div class="container">
+        <section class="product-showcase glass-effect" id="robotics-kit"> {/* Using dark glass effect */}
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-2">
                     <h2 class="section-title">Educational Robotics Kit (Conceptual)</h2>
@@ -361,8 +392,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </div> {/* End of main content container */}
 
     <section class="cta-section py-5">
         <div class="container">
