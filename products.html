@@ -8,13 +8,145 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&family=Orbitron:wght@500;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.ico">
+    <style>
+        /* Basic styles - Consider moving these to style.css for better organization */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa; /* Light background for product page */
+            padding-top: 70px; /* Adjust based on your navbar's height */
+        }
+        .page-header {
+            background-color: #000000; /* Black header */
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .page-header h1 {
+            font-weight: 700;
+            color: #ff3b3b; /* Red heading color */
+        }
+        .page-header .lead {
+            color: #f0f0f0; /* Lighter lead text */
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff3b3b; /* Red section titles */
+            margin-bottom: 1.5rem;
+        }
+        .product-showcase {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #dee2e6; /* Add subtle separator line */
+        }
+        .product-showcase:last-of-type { /* The last product showcase before CTA will have border */
+             border-bottom: 1px solid #dee2e6;
+        }
+        .cta-section { /* Ensure CTA doesn't have a top border from product showcase */
+            border-top: none; /* Explicitly remove top border if product showcase adds bottom one */
+        }
+        .product-showcase h2 {
+             font-family: 'Orbitron', sans-serif;
+             color: #ff3b3b;
+        }
+        .product-showcase .lead {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #495057; /* Darker text for readability on light background */
+        }
+        .product-showcase p, .product-showcase ul {
+            color: #343a40;
+        }
+         /* Ensure text is dark on light backgrounds (like the alternating bg-light sections) */
+         .product-showcase.bg-light .lead,
+         .product-showcase.bg-light p,
+         .product-showcase.bg-light ul {
+            color: #343a40;
+        }
+
+        .product-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px; /* Ensure space for image */
+            background-color: #e9ecef; /* Placeholder background */
+            border-radius: 15px; /* Rounded corners for image placeholder */
+            overflow: hidden; /* Ensure image stays within bounds */
+        }
+        .product-image.placeholder-image {
+            width: 100%;
+            height: 300px; /* Adjust as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #cccccc; /* Placeholder color */
+            color: #555555;
+            font-style: italic;
+            border-radius: 15px; /* Keep rounded corners */
+        }
+        .product-image.placeholder-image::before {
+            content: "Product Image/Graphic Coming Soon"; /* Generic placeholder text */
+            padding: 1rem; /* Add some padding to the text */
+        }
+
+        .cta-section {
+            background-color: #000000; /* Black CTA */
+            color: #ffffff;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        .cta-section h2 {
+            color: #ff3b3b; /* Red title */
+        }
+        .cta-section .lead {
+            color: #f0f0f0;
+        }
+        .btn-danger {
+            background-color: #ff3b3b;
+            border-color: #ff3b3b;
+            font-family: 'Orbitron', sans-serif;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+        }
+        .btn-danger:hover {
+            background-color: #e02121;
+            border-color: #d01111;
+        }
+
+        .footer {
+            background-color: #000000; /* Black footer */
+            color: #ccc; /* Light grey text for footer */
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .footer h5 {
+            color: #ff3b3b; /* Red headings in footer */
+        }
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #ff3b3b;
+        }
+        .social-links a {
+            color: #ccc;
+            margin-right: 15px;
+            font-size: 1.5rem; /* Adjust icon size if needed */
+        }
+        .social-links a:hover {
+            color: #ff3b3b;
+        }
+        .navbar-brand img {
+            max-height: 40px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="images/90_degree_robotics_logo.png" alt="90° ROBOTICS" height="40">
+                <img src="images/90_degree_robotics_logo.png" alt="90° ROBOTICS Logo" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,7 +160,7 @@
                         <a class="nav-link" href="about.html">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="products.html">Products</a>
+                        <a class="nav-link active" aria-current="page" href="products.html">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="technology.html">Technology</a>
@@ -39,45 +171,48 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header bg-black text-white py-5 mt-5">
+    <header class="page-header py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 fw-bold">OUR PRODUCTS</h1>
-                    <p class="lead">Discover our innovative consumer-grade robotics solutions.</p>
+                    <h1 class="display-4">OUR PRODUCTS & PLATFORMS</h1>
+                    <p class="lead">Explore our robotics hardware, software, and educational initiatives.</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Product Showcase Section -->
-    <section class="product-showcase py-5" id="team-mobile-wagon">
+    <section class="product-showcase py-5" id="wagonbot">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h2 class="section-title">TEAM MOBILE WAGON</h2>
-                    <p class="lead">A self-balancing utility wagon designed for lawn mowing and personal use.</p>
-                    <p>The Team Mobile Wagon represents our commitment to creating practical robotics solutions for everyday tasks. This versatile platform combines self-balancing technology with robust utility features to assist with lawn care and other outdoor activities.</p>
-                    <h4>Key Features:</h4>
+                    <h2 class="section-title">WagonBot</h2>
+                    <p class="lead">A powered, self-balancing utility wagon in development, designed for heavy loads and versatile terrains.</p>
+                    <p>WagonBot is engineered for both personal and professional use, capable of carrying loads up to three hundred pounds. It aims to provide stability and ease of control across various environments, representing our commitment to practical, user-friendly robotics for everyday tasks. Currently in development and not yet available for purchase.</p>
+                    <h4>Key Features (Planned/In Development):</h4>
                     <ul>
-                        <li>Self-balancing technology for stability on various terrains</li>
-                        <li>Modular accessory system for different applications</li>
-                        <li>Intelligent load distribution and weight management</li>
-                        <li>Weather-resistant construction for outdoor durability</li>
+                        <li>Self-balancing technology for stability</li>
+                        <li>Powered drive system for effortless hauling</li>
+                        <li>300 lbs load capacity</li>
+                        <li>All-terrain capability</li>
                         <li>User-friendly controls and intuitive operation</li>
+                        <li>Modular accessory potential</li>
                     </ul>
-                    <h4>Applications:</h4>
+                    <h4>Potential Applications:</h4>
                     <ul>
-                        <li>Lawn care equipment transport</li>
-                        <li>Garden maintenance assistance</li>
-                        <li>Outdoor event support</li>
-                        <li>Personal item transportation</li>
+                        <li>Lawn care and landscaping equipment transport</li>
+                        <li>Garden maintenance and material hauling</li>
+                        <li>Outdoor event support and logistics</li>
+                        <li>Personal item and gear transportation</li>
+                        <li>Workshop and job site assistance</li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
@@ -89,28 +224,28 @@
         </div>
     </section>
 
-    <!-- Product Showcase Section -->
-    <section class="product-showcase py-5 bg-light" id="deep-dropping-cart">
+    <section class="product-showcase py-5 bg-light" id="smart-cart">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2">
-                    <h2 class="section-title">DEEP DROPPING CART</h2>
-                    <p class="lead">A vision-assisted, self-navigating cart designed for retail automation.</p>
-                    <p>The Deep Dropping Cart revolutionizes the retail experience by combining computer vision with autonomous navigation. This innovative solution helps streamline operations in retail environments while enhancing the customer experience.</p>
-                    <h4>Key Features:</h4>
+                 <div class="col-lg-6 order-lg-2">
+                     <h2 class="section-title">Smart Cart (Conceptual)</h2>
+                    <p class="lead">An envisioned autonomous, vision-assisted shopping companion for retail and personal use.</p>
+                    <p>Smart Cart is a conceptual design forming a core part of our long-term roadmap. It's envisioned to feature real-time item recognition, inventory tracking, and adaptive navigation to streamline shopping experiences and assist users in various environments. This project is currently in the ideation stage.</p>
+                    <h4>Key Features (Envisioned):</h4>
                     <ul>
                         <li>Vision-assisted navigation for obstacle avoidance</li>
-                        <li>Self-navigating capabilities in structured environments</li>
-                        <li>Intelligent item recognition and inventory tracking</li>
-                        <li>Customizable interface for different retail applications</li>
-                        <li>Energy-efficient operation for all-day use</li>
+                        <li>Autonomous operation in structured environments</li>
+                        <li>Intelligent item recognition and categorization</li>
+                        <li>Real-time inventory tracking and list management</li>
+                        <li>Customizable interface for diverse applications</li>
+                        <li>Energy-efficient design for extended use</li>
                     </ul>
-                    <h4>Applications:</h4>
+                    <h4>Potential Applications:</h4>
                     <ul>
-                        <li>Retail store assistance</li>
-                        <li>Inventory management</li>
-                        <li>Customer service enhancement</li>
-                        <li>Automated checkout support</li>
+                        <li>Enhanced retail store shopping assistance</li>
+                        <li>Automated inventory management for businesses</li>
+                        <li>Personalized shopping experiences</li>
+                        <li>Support for assisted living or accessibility needs</li>
                     </ul>
                 </div>
                 <div class="col-lg-6 order-lg-1">
@@ -122,83 +257,133 @@
         </div>
     </section>
 
-    <!-- Future Products Section -->
-    <section class="future-products py-5">
+    <section class="product-showcase py-5" id="aura">
         <div class="container">
-            <h2 class="section-title text-center mb-5">FUTURE CONCEPTS</h2>
-            <p class="text-center mb-5">As we continue to develop our technology and expand our capabilities, we're exploring new applications and product categories to address a wider range of consumer needs.</p>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 future-product-card">
-                        <div class="card-body">
-                            <h3 class="card-title">Home Assistant Robot</h3>
-                            <p class="card-text">A versatile robotic assistant designed to help with household tasks, organization, and daily routines.</p>
-                            <h5>Potential Features:</h5>
-                            <ul>
-                                <li>Multi-room navigation</li>
-                                <li>Voice interaction</li>
-                                <li>Task scheduling and reminders</li>
-                                <li>Smart home integration</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">AURA (Conceptual)</h2>
+                    <p class="lead">An Autonomous User Robotic Assistant envisioned as a versatile humanoid helper for home environments.</p>
+                    <p>AURA represents our long-term vision for a personal robotic assistant. Designed to be approachable and helpful, AURA aims to support users with daily tech tasks, manage smart home devices, provide security monitoring, and offer general assistance through natural interaction. This concept focuses on integrating advanced AI, sensing, and mobility into a user-friendly form factor.</p>
+                    <h4>Potential Features:</h4>
+                    <ul>
+                        <li>Advanced sensor integration (vision, audio, environmental)</li>
+                        <li>Facial recognition and user personalization</li>
+                        <li>Conversational AI for natural language interaction</li>
+                        <li>Contextual task assistance and automation</li>
+                        <li>Smart home device control and integration</li>
+                        <li>Security monitoring and alert capabilities</li>
+                        <li>Adaptive learning based on user interaction</li>
+                    </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 future-product-card">
-                        <div class="card-body">
-                            <h3 class="card-title">Personal Delivery Robot</h3>
-                            <p class="card-text">An autonomous delivery solution for local businesses and neighborhood services.</p>
-                            <h5>Potential Features:</h5>
-                            <ul>
-                                <li>GPS navigation</li>
-                                <li>Secure cargo compartment</li>
-                                <li>Weather-resistant design</li>
-                                <li>Real-time tracking</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 future-product-card">
-                        <div class="card-body">
-                            <h3 class="card-title">Educational Robotics Kit</h3>
-                            <p class="card-text">A modular robotics platform designed to teach programming, engineering, and problem-solving skills.</p>
-                            <h5>Potential Features:</h5>
-                            <ul>
-                                <li>Programmable components</li>
-                                <li>Sensor integration</li>
-                                <li>Project-based learning modules</li>
-                                <li>Expandable capabilities</li>
-                            </ul>
-                        </div>
+                 <div class="col-lg-6">
+                    <div class="product-image-container">
+                         <div class="product-image placeholder-image"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section py-5 bg-black text-white">
+    <section class="product-showcase py-5 bg-light" id="core-ai">
+        <div class="container">
+            <div class="row align-items-center">
+                 <div class="col-lg-6 order-lg-2">
+                    <h2 class="section-title">90° Core AI</h2>
+                    <p class="lead">The intelligent software platform powering our robots and enabling seamless home automation integration.</p>
+                    <p>The 90° Core AI is the brain behind our robotics ecosystem. It's being developed as a custom AI platform focused on secure, efficient control of both our robotic hardware (like WagonBot and future concepts like AURA) and compatible smart home devices. This platform prioritizes user privacy, intuitive interaction, and adaptive learning to create a truly integrated and helpful smart environment.</p>
+                    <h4>Key Capabilities (In Development):</h4>
+                    <ul>
+                        <li>Unified control interface for robots and smart home devices</li>
+                        <li>Secure, encrypted communication protocols</li>
+                        <li>Adaptive learning for personalized automation routines</li>
+                        <li>Natural language processing for voice and text commands</li>
+                        <li>Cross-device compatibility and interoperability</li>
+                        <li>On-device processing potential for enhanced privacy</li>
+                        <li>Developer APIs for future expansion</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="product-image-container">
+                        <div class="product-image placeholder-image"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-showcase py-5" id="sr1">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">SR1 (Small Robot 1)</h2>
+                    <p class="lead">A compact mobile robot designed for early-stage testing, development, and AI interaction research.</p>
+                    <p>SR1 serves as a versatile and foundational platform for 90° ROBOTICS. It's instrumental in testing core functionalities like object recognition, person/pet following, and remote control systems. Furthermore, SR1 is a key proving ground for integrating and refining LLM-based interactions, allowing for continuous upgrades in both its software intelligence and hardware capabilities thanks to its modular framework.</p>
+                    <h4>Key Aspects & Uses:</h4>
+                    <ul>
+                        <li>Development platform for computer vision algorithms</li>
+                        <li>Testbed for autonomous navigation and obstacle avoidance</li>
+                        <li>Prototyping human-robot interaction (HRI) with LLMs</li>
+                        <li>Modular design for easy hardware/software upgrades</li>
+                        <li>Remote teleoperation and control system testing</li>
+                        <li>Foundation for more complex robotic systems</li>
+                    </ul>
+                </div>
+                 <div class="col-lg-6">
+                    <div class="product-image-container">
+                         <div class="product-image placeholder-image"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-showcase py-5 bg-light" id="robotics-kit">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <h2 class="section-title">Educational Robotics Kit (Conceptual)</h2>
+                    <p class="lead">A modular robotics platform concept designed to inspire and teach programming, engineering, and problem-solving.</p>
+                    <p>We envision an Educational Robotics Kit that empowers learners of all ages. This kit would provide hands-on experience with building and programming robots, fostering an understanding of core STEM concepts. The focus would be on modularity, allowing for progressive learning and creative exploration, from basic movements to complex sensor-based behaviors.</p>
+                    <h4>Potential Features & Goals:</h4>
+                    <ul>
+                        <li>Programmable microcontroller (e.g., Raspberry Pi, Arduino compatible)</li>
+                        <li>Diverse range of sensors (e.g., ultrasonic, line-following, light)</li>
+                        <li>Various actuators (e.g., motors, servos)</li>
+                        <li>Easy-to-assemble mechanical components</li>
+                        <li>Project-based learning modules and curriculum support</li>
+                        <li>Scalable for different skill levels (beginner to advanced)</li>
+                        <li>Community platform for sharing projects and ideas</li>
+                    </ul>
+                </div>
+                 <div class="col-lg-6 order-lg-1">
+                    <div class="product-image-container">
+                        <div class="product-image placeholder-image"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section py-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h2 class="section-title">SUPPORT OUR INNOVATION</h2>
-                    <p class="lead mb-4">Help us bring these innovative robotics solutions to market. Your support enables us to continue developing cutting-edge technology that enhances everyday life.</p>
+                    <p class="lead mb-4">Help us bring these innovative robotics solutions and the AI that powers them to market. Your support enables us to continue developing cutting-edge technology that enhances everyday life.</p>
                     <a href="support.html" class="btn btn-danger btn-lg">Support 90° ROBOTICS</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer bg-black text-white py-4">
+    <footer class="footer py-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <img src="images/90_degree_robotics_logo.png" alt="90° ROBOTICS" height="40" class="mb-3">
+                    <img src="images/90_degree_robotics_logo.png" alt="90° ROBOTICS Logo" height="40" class="mb-3">
                     <p>Creating advanced robotics and pioneering design techniques that push the boundaries of modern technology.</p>
                 </div>
-                <div class="col-lg-2 mb-4 mb-lg-0">
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                     <h5>Pages</h5>
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
@@ -209,37 +394,36 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 mb-4 mb-lg-0">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5>Contact</h5>
                     <ul class="list-unstyled">
-                        <li><a href="mailto:info@90degreerobots.com">info@90degreerobots.com</a></li>
+                        <li><a href="mailto:info@90degreerobotics.tech">info@90degreerobotics.tech</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <h5>Follow Us</h5>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
             </div>
-            <hr class="mt-4 mb-3">
+            <hr class="mt-4 mb-3" style="border-color: rgba(255,255,255,0.2);">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
                     <p class="mb-0">&copy; 2025 90° ROBOTICS. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <a href="#" class="text-white me-3">Privacy Policy</a>
-                    <a href="#" class="text-white">Terms of Service</a>
+                     <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
