@@ -8,13 +8,169 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&family=Orbitron:wght@500;700&display=swap">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.ico">
+    <style>
+        /* Consistent styles from Products page */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), url('images/bg1.jpg'); /* Darker overlay */
+            background-color: #0a0a0a; /* Dark fallback color */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #f0f0f0;
+            padding-top: 70px; /* Adjust based on your navbar's height */
+        }
+        .page-header {
+            background-color: transparent;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            border-bottom: 1px solid rgba(255, 59, 59, 0.5);
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            margin-bottom: 2rem;
+        }
+        .page-header h1 {
+            font-weight: 700;
+            color: #ff3b3b;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5);
+        }
+        .page-header .lead {
+            color: #f0f0f0;
+             text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        .section-title { /* For titles within glass sections */
+            font-family: 'Orbitron', sans-serif;
+            color: #ff3b3b;
+            margin-bottom: 1.5rem;
+        }
+        .content-section-title { /* For main section titles outside glass */
+            font-family: 'Orbitron', sans-serif;
+            color: #ff3b3b;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+
+        /* Dark Glass Effect Class */
+        .glass-effect {
+            background: rgba(10, 10, 10, 0.7); /* Slightly adjusted alpha for depth */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.25);
+            margin-bottom: 2.5rem; /* Increased margin */
+            padding: 2.5rem; /* Increased padding */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .glass-effect:hover {
+             transform: translateY(-5px);
+             background: rgba(20, 20, 20, 0.8);
+             box-shadow: 0 8px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Ensure content inside dark glass is readable */
+        .glass-effect h2.section-title, .glass-effect h3 { /* Apply to h3 as well */
+             color: #ff3b3b;
+             font-family: 'Orbitron', sans-serif;
+        }
+         .glass-effect h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.75rem; /* Adjust size for h3 */
+         }
+        .glass-effect .lead {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #e0e0e0;
+        }
+        .glass-effect p, .glass-effect ul {
+            color: #cccccc;
+            font-size: 1.05rem; /* Slightly larger paragraph text */
+            line-height: 1.7; /* Improved line spacing */
+        }
+         .glass-effect h4 { /* For sub-headings within sections */
+            font-family: 'Orbitron', sans-serif;
+            color: #ff6b6b;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+         }
+         .glass-effect ul {
+            padding-left: 1.2rem;
+         }
+         .glass-effect li {
+             margin-bottom: 0.5rem; /* Slightly more space for list items */
+             color: #cccccc;
+         }
+        .glass-effect strong { /* Make strong text pop a bit more */
+            color: #ffd700; /* Example: Gold color for emphasis */
+        }
+
+
+        .cta-section {
+            background-color: #000000;
+            color: #ffffff;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 59, 59, 0.5);
+        }
+        .cta-section h2 {
+            color: #ff3b3b;
+        }
+        .cta-section .lead {
+            color: #f0f0f0;
+        }
+        .btn-danger {
+            background-color: #ff3b3b;
+            border-color: #ff3b3b;
+            font-family: 'Orbitron', sans-serif;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .btn-danger:hover {
+            background-color: #e02121;
+            border-color: #d01111;
+        }
+
+        .footer {
+            background-color: #000000;
+            color: #ccc;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer h5 {
+            color: #ff3b3b;
+        }
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            color: #ff3b3b;
+        }
+        .social-links a {
+            color: #ccc;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        .social-links a:hover {
+            color: #ff3b3b;
+        }
+        .navbar-brand img {
+            max-height: 40px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="images/90_degree_robotics_logo.png" alt="90° ROBOTICS" height="40">
+                <img src="images/90_degree_robotics_logo.png" alt="90° ROBOTICS Logo" height="40">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -31,7 +187,7 @@
                         <a class="nav-link" href="products.html">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="technology.html">Technology</a>
+                        <a class="nav-link active" aria-current="page" href="technology.html">Technology</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="support.html">Support Us</a>
@@ -39,244 +195,132 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header bg-black text-white py-5 mt-5">
+    <header class="page-header py-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 fw-bold">OUR TECHNOLOGY</h1>
-                    <p class="lead">Discover the innovative technology powering our consumer robotics solutions.</p>
+                    <h1 class="display-4">OUR TECHNOLOGY STACK</h1>
+                    <p class="lead">Delving into the core innovations and engineering principles that drive 90° ROBOTICS forward.</p>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- AI Platform Section -->
-    <section class="ai-platform-section py-5">
-        <div class="container">
+    <div class="container mt-4">
+
+        <section class="glass-effect" id="tech-intro">
+            <h2 class="section-title text-center">Pioneering Practical Innovation</h2>
+            <p class="lead text-center">At 90° ROBOTICS, our technology strategy is built on a foundation of integrating cutting-edge advancements with practical, real-world applications. We focus on developing robust, intelligent, and secure systems that are both accessible and transformative. Our approach emphasizes modularity, allowing for iterative development and adaptation to emerging needs.</p>
+            <p>We leverage a diverse range of technologies, from advanced AI and machine learning for intelligent decision-making, to sophisticated sensor fusion for environmental awareness, and robust mechatronics for reliable physical interaction. Every component and system is designed with our <strong>security-first principle</strong>, ensuring that our creations are not only smart but also safe and trustworthy, especially as we aim to meet demanding standards, including those for potential defense applications.</p>
+        </section>
+
+        <section class="glass-effect" id="ai-ml">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2 class="section-title">PROPRIETARY AI PLATFORM</h2>
-                    <p class="lead">The core of our innovation is our proprietary AI platform that powers all our robotics solutions.</p>
-                    <p>Our Phase 2 development focuses on creating a sophisticated artificial intelligence system that enables our products to learn, adapt, and provide unprecedented value in consumer applications. This platform represents the culmination of our research and development efforts.</p>
-                    <h4>Key Components:</h4>
+                <div class="col-lg-7">
+                    <h3 class="content-section-title">Artificial Intelligence & Machine Learning</h3>
+                    <p>The intelligence of our platforms, including the <strong>90° Core AI</strong>, is driven by sophisticated AI and machine learning algorithms. This enables our robots to perceive, understand, and interact with their environment in meaningful ways.</p>
+                    <h4>Key Applications:</h4>
                     <ul>
-                        <li>Advanced machine learning algorithms for adaptive behavior</li>
-                        <li>Computer vision systems for environmental awareness</li>
-                        <li>Decision-making frameworks for autonomous operation</li>
-                        <li>Integration architecture for existing and future products</li>
+                        <li><strong>Computer Vision:</strong> Powering object recognition in <strong>SR1</strong>, item identification for the conceptual <strong>Smart Cart</strong>, and environmental understanding for <strong>AURA</strong>.</li>
+                        <li><strong>Natural Language Processing (NLP):</strong> Enabling intuitive voice and text interactions, particularly crucial for <strong>AURA</strong> and the <strong>90° Core AI</strong>.</li>
+                        <li><strong>Autonomous Navigation:</strong> Path planning, obstacle avoidance, and SLAM (Simultaneous Localization and Mapping) are essential for the mobility of <strong>WagonBot</strong>, <strong>Smart Cart</strong>, and <strong>SR1</strong>.</li>
+                        <li><strong>Adaptive Learning:</strong> Our systems, especially the <strong>90° Core AI</strong>, are designed to learn from interactions and user preferences to personalize experiences and improve performance over time.</li>
                     </ul>
                 </div>
-                <div class="col-lg-6">
-                    <div class="tech-image-container">
-                        <div class="tech-image placeholder-image"></div>
-                    </div>
+                <div class="col-lg-5 text-center">
+                    <img src="https://placehold.co/300x300/1a1a1a/ff3b3b?text=AI+Icon" alt="AI and Machine Learning" class="img-fluid rounded">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Technology Features Section -->
-    <section class="tech-features-section py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">CORE TECHNOLOGIES</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 tech-feature-card">
-                        <div class="card-body">
-                            <h3 class="card-title">Computer Vision</h3>
-                            <p class="card-text">Our advanced computer vision systems enable our robots to perceive and understand their environment, recognize objects, and navigate safely around obstacles.</p>
-                            <h5>Capabilities:</h5>
-                            <ul>
-                                <li>Object recognition and classification</li>
-                                <li>Spatial awareness and mapping</li>
-                                <li>Real-time environmental analysis</li>
-                                <li>Visual feedback processing</li>
-                            </ul>
-                        </div>
-                    </div>
+        <section class="glass-effect" id="robotics-mechatronics">
+             <div class="row align-items-center">
+                <div class="col-lg-5 text-center order-lg-1">
+                    <img src="https://placehold.co/300x300/1a1a1a/ff3b3b?text=Robotics+Icon" alt="Robotics and Mechatronics" class="img-fluid rounded">
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 tech-feature-card">
-                        <div class="card-body">
-                            <h3 class="card-title">Machine Learning</h3>
-                            <p class="card-text">Our machine learning algorithms allow our robots to improve their performance over time by learning from user interactions and adapting to specific environments.</p>
-                            <h5>Capabilities:</h5>
-                            <ul>
-                                <li>Behavioral pattern recognition</li>
-                                <li>Adaptive response systems</li>
-                                <li>Continuous improvement mechanisms</li>
-                                <li>Personalized user experience</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 tech-feature-card">
-                        <div class="card-body">
-                            <h3 class="card-title">Autonomous Navigation</h3>
-                            <p class="card-text">Our navigation systems enable our robots to move efficiently and safely through various environments, avoiding obstacles and optimizing paths.</p>
-                            <h5>Capabilities:</h5>
-                            <ul>
-                                <li>Path planning and optimization</li>
-                                <li>Obstacle detection and avoidance</li>
-                                <li>Dynamic route adjustment</li>
-                                <li>Location awareness</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="col-lg-7 order-lg-2">
+                    <h3 class="content-section-title">Robotics, Mechatronics & Control</h3>
+                    <p>The physical capabilities of our robots are a testament to our expertise in mechatronics engineering and advanced control systems. We design for durability, efficiency, and precision.</p>
+                    <h4>Core Components:</h4>
+                    <ul>
+                        <li><strong>Self-Balancing Systems:</strong> A key feature of <strong>WagonBot</strong>, ensuring stability and maneuverability even with heavy loads.</li>
+                        <li><strong>Actuation & Drivetrains:</strong> Custom-designed motor control for smooth and powerful movement in platforms like <strong>WagonBot</strong> and <strong>SR1</strong>.</li>
+                        <li><strong>Modular Hardware Design:</strong> Emphasized in <strong>SR1</strong> and our future <strong>Educational Robotics Kit</strong>, allowing for flexibility, upgrades, and easier maintenance.</li>
+                        <li><strong>Sensor Integration & Fusion:</strong> Combining data from various sensors (cameras, LiDAR, IMUs, ultrasonic) to create a comprehensive understanding of the robot's surroundings and state. This is vital for all our mobile platforms.</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Innovation Process Section -->
-    <section class="innovation-process-section py-5">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">OUR INNOVATION PROCESS</h2>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="process-step text-center">
-                        <div class="process-number">01</div>
-                        <h3>Research</h3>
-                        <p>We begin with extensive research to identify consumer needs and technological possibilities.</p>
-                    </div>
+        <section class="glass-effect" id="software-iot">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h3 class="content-section-title">Software Architecture & IoT</h3>
+                    <p>Our <strong>90° Core AI</strong> platform exemplifies our approach to software: creating a robust, scalable, and interconnected ecosystem. We leverage modern software practices to build reliable and user-friendly applications.</p>
+                    <h4>Key Aspects:</h4>
+                    <ul>
+                        <li><strong>Unified Control Systems:</strong> The <strong>90° Core AI</strong> aims to provide a single interface for managing our robots and compatible smart home devices.</li>
+                        <li><strong>Secure Communication:</strong> Implementing end-to-end encryption and secure protocols for all data transmission.</li>
+                        <li><strong>Cloud & Edge Computing:</strong> Balancing on-device processing for speed and privacy (e.g., in <strong>SR1</strong>) with cloud capabilities for complex computations and data analysis.</li>
+                        <li><strong>API Development:</strong> Planning for developer APIs to allow third-party integrations and expand the capabilities of our ecosystem.</li>
+                        <li><strong>Real-time Operating Systems (RTOS):</strong> Investigating and utilizing RTOS where precise timing and reliability are critical for robot control.</li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="process-step text-center">
-                        <div class="process-number">02</div>
-                        <h3>Design</h3>
-                        <p>Our design phase focuses on creating intuitive, user-friendly solutions with elegant functionality.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="process-step text-center">
-                        <div class="process-number">03</div>
-                        <h3>Prototype</h3>
-                        <p>We develop working prototypes to test concepts, refine functionality, and validate designs.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="process-step text-center">
-                        <div class="process-number">04</div>
-                        <h3>Iterate</h3>
-                        <p>Through continuous testing and refinement, we perfect our products before bringing them to market.</p>
-                    </div>
+                <div class="col-lg-5 text-center">
+                    <img src="https://placehold.co/300x300/1a1a1a/ff3b3b?text=Software+Icon" alt="Software and IoT" class="img-fluid rounded">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Technical Specifications Section -->
-    <section class="tech-specs-section py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">TECHNICAL SPECIFICATIONS</h2>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-header bg-black text-white">
-                            <h3 class="card-title mb-0">Team Mobile Wagon</h3>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Dimensions</th>
-                                        <td>24" x 36" x 18" (W x L x H)</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Weight Capacity</th>
-                                        <td>Up to 150 lbs</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Battery Life</th>
-                                        <td>8-10 hours of continuous use</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sensors</th>
-                                        <td>Gyroscopic stabilizers, weight distribution sensors, terrain analyzers</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Connectivity</th>
-                                        <td>Bluetooth 5.0, Wi-Fi enabled</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Weather Resistance</th>
-                                        <td>IP65 rated for outdoor use</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        <section class="glass-effect" id="security">
+            <div class="row align-items-center">
+                 <div class="col-lg-5 text-center order-lg-1">
+                    <img src="https://placehold.co/300x300/1a1a1a/ff3b3b?text=Security+Icon" alt="Security First Design" class="img-fluid rounded">
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-header bg-black text-white">
-                            <h3 class="card-title mb-0">Deep Dropping Cart</h3>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">Dimensions</th>
-                                        <td>22" x 30" x 40" (W x L x H)</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Capacity</th>
-                                        <td>Up to 50 items or 100 lbs</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Battery Life</th>
-                                        <td>12 hours of continuous operation</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Sensors</th>
-                                        <td>360° vision cameras, proximity sensors, item recognition system</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Connectivity</th>
-                                        <td>Wi-Fi, Bluetooth, optional cellular connectivity</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Navigation</th>
-                                        <td>Indoor mapping, obstacle avoidance, path optimization</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                <div class="col-lg-7 order-lg-2">
+                    <h3 class="content-section-title">Security-First Design</h3>
+                    <p>Security is not an afterthought at 90° ROBOTICS; it is a foundational principle woven into every stage of our design and development process. This commitment is paramount as we build trust with our users and aim for applications requiring high levels of reliability and data protection, including potential defense contracts.</p>
+                    <h4>Our Approach:</h4>
+                    <ul>
+                        <li><strong>Threat Modeling:</strong> Proactively identifying and mitigating potential vulnerabilities in hardware and software.</li>
+                        <li><strong>Data Encryption:</strong> Protecting data at rest and in transit using robust encryption standards.</li>
+                        <li><strong>Secure Boot & Hardware Roots of Trust:</strong> Ensuring the integrity of our devices from the moment they power on.</li>
+                        <li><strong>Access Control & Authentication:</strong> Implementing strong mechanisms to prevent unauthorized access.</li>
+                        <li><strong>Regular Security Audits & Penetration Testing:</strong> Continuously evaluating and strengthening our defenses.</li>
+                        <li><strong>Privacy by Design:</strong> Minimizing data collection and providing users with control over their information.</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section py-5 bg-black text-white">
+    </div> <section class="cta-section py-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="section-title">SUPPORT OUR TECHNOLOGY</h2>
-                    <p class="lead mb-4">Help us continue developing cutting-edge robotics technology. Your support enables us to push the boundaries of what's possible in consumer robotics.</p>
-                    <a href="support.html" class="btn btn-danger btn-lg">Support 90° ROBOTICS</a>
+                    <h2 class="section-title">PARTNER WITH US</h2>
+                    <p class="lead mb-4">Interested in leveraging our technology or collaborating on future innovations? We're always looking for new opportunities.</p>
+                    <a href="contact.html" class="btn btn-danger btn-lg">Get In Touch</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer bg-black text-white py-4">
+    <footer class="footer py-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <img src="images/90_degree_robotics_logo.png" alt="90° ROBOTICS" height="40" class="mb-3">
+                    <img src="images/90_degree_robotics_logo.png" alt="90° ROBOTICS Logo" height="40" class="mb-3">
                     <p>Creating advanced robotics and pioneering design techniques that push the boundaries of modern technology.</p>
                 </div>
-                <div class="col-lg-2 mb-4 mb-lg-0">
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                     <h5>Pages</h5>
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
@@ -287,39 +331,39 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 mb-4 mb-lg-0">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5>Contact</h5>
                     <ul class="list-unstyled">
-                        <li><a href="mailto:info@90degreerobots.com">info@90degreerobots.com</a></li>
+                        <li><a href="mailto:info@90degreerobotics.tech">info@90degreerobotics.tech</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
                     <h5>Follow Us</h5>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
             </div>
-            <hr class="mt-4 mb-3">
+            <hr class="mt-4 mb-3" style="border-color: rgba(255,255,255,0.2);">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
                     <p class="mb-0">&copy; 2025 90° ROBOTICS. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <a href="#" class="text-white me-3">Privacy Policy</a>
-                    <a href="#" class="text-white">Terms of Service</a>
+                     <a href="#" class="me-3">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
+
